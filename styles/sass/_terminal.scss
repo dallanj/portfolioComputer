@@ -1,0 +1,33 @@
+
+// terminal window styling
+.terminal-content {
+    background-color: #300a24;
+    margin-top: calc(32px);
+    color:white;
+    text-align: left;
+    font-size: 1.15em;
+    font-family: monospace !important;
+    height: calc(100% - 40px);
+
+    .window-terminal-content {
+      padding:1em;
+      overflow-y: auto;
+      height:100%;
+
+      .green{
+        color: yellowgreen;
+      }
+      .purple{
+        color: crimson !important;
+      }
+      span, .typewriterFont {
+        font-family: monospace !important;
+        font-size: 1.15em;
+      }
+      p {
+        margin:0;
+        padding:0;
+        display: inline;
+      }
+    }
+  }

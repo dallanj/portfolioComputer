@@ -1,0 +1,128 @@
+.viewProject-content {
+    display:flex;
+    margin-top:-2em;
+    flex-direction: column;
+    color:#c5c5c5;
+    height: calc(100% - 40px);
+    padding:1em;
+    margin:0 auto;
+    max-width: 600px;
+  
+    .buttons-container {
+      padding:1.5em 0;
+      display:flex;
+      // margin-top:3em;
+
+      .liveLink, .gitLink {
+        background-color: #e54827;
+        padding:.5em 1em;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1.25rem;
+      }
+      .liveLink:hover ,.gitLink:hover {
+          background-color: #E85538;
+          transform: scale(1.1);
+          
+      }
+      .liveLink {
+        margin-right:auto;
+      }
+      .gitLink {
+        margin-left:auto;
+      }
+    }
+    h2 {
+      font-size:1.5rem; 
+      text-align: left;
+      margin-bottom: .5em;
+    }
+    p {
+      text-align: left;
+      margin-bottom: 2em;
+      line-height: 24px;
+      word-wrap: break-word;
+    }
+    img {
+      border-radius: 5px;
+      box-shadow: 8px 8px 0 rgba(0,0,0,.15);
+      opacity: .6;
+    }
+  }
+  
+  .slider{
+      position: relative;
+       max-width: 40rem; 
+      height: 22.625rem; 
+      margin: 0 auto;
+      overflow: hidden;
+      button{
+        background: none;
+        border: none;
+      }
+      button .fas{
+        color: rgba(0, 0, 0, .5);
+        }
+  }
+  @media screen and (max-width:480px) {
+    .slider {
+      height:240px;
+    }
+  }
+  .slide{ 
+      position: absolute;
+      top:0;
+      width: 100%;
+      // height: 26.625rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 1s;
+  }
+  .slide > img{
+      width: 100%;
+      opacity: .6;
+  }
+  .btn-slide{
+      position:absolute;
+      top:40%;
+      z-index: 10;
+  
+      height: 5.5rem;
+      width: 5.5rem;
+      cursor: pointer;
+  }
+  .prev{
+      left:3rem;
+      transform: translate(-50%, -50%);
+  }
+  .next{
+      right: 3rem;
+      transform: translate(50%, -50%); 
+  }
+  .dots-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative
+  }
+  .dot{
+      width: 12.5px;
+      height: 12.5px;
+      margin: 15px 5px;
+      border-radius: 50%;
+      background: rgba(39,39,39, .5);
+      cursor: pointer;
+  }
+  .dot.active{
+  background:#272727;
+  }
+
+  ul.techStack {
+    text-align: left;
+    padding:0 1em;
+    list-style-type: disc !important;
+    li.techStack-item {
+      list-style-type: disc !important;
+    }
+  }

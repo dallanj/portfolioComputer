@@ -1,0 +1,155 @@
+
+
+.contact-content {
+    display:flex;
+    flex-direction: column;
+    text-align: left;
+    margin-top: calc(32px + .5em);
+    height: calc(100% - 40px);
+
+    .window-contact-content {
+      padding:1em;
+      overflow-y: auto;
+      height:100%;
+
+      .contact-form-container {
+        max-width: 400px;
+        margin: 0 auto;
+        // contact form styling
+      .contact-form {
+        display:grid;
+        grid-template-columns: repeat(3,1fr);
+        gap:1em;
+    
+        .contact-name, .contact-email, .contact-message {
+          grid-column: 1 / span 4;
+          background-color: #2C2C2C;
+          border:none;
+          padding:.75em;
+          color:#ccc;
+        } 
+        .contact-message {
+          resize: vertical;
+          height:200px;
+        }
+    
+        .contact-button {
+          color:#fffdfc;
+          border:none;
+          padding:.5em 1em;
+          margin-top: 1em;
+          border-radius: 5px;
+          cursor: pointer;
+          margin-bottom: 2em;
+        }
+        .contact-button:hover {
+          transform: scale(1.025);
+        }
+    
+        .contact-submit {
+          grid-column: 4;
+          background-color: #e54827;
+        }
+        .contact-submit:hover {
+          background-color: #E85538;
+        }
+        .contact-pgp {
+          grid-column: 1 / span 2;
+          background-color: #17B250;
+        }
+        .contact-pgp:hover {
+          background-color: #1BD25D;
+        }
+        #pgp {
+          display:none;
+        }
+        #removePgp {
+          display: none;
+        }
+      }
+
+      }
+  
+      
+  
+    }
+  
+  }
+  .orange {
+    color:#e95420;
+  }
+  
+  // alerts
+  .alert {
+      padding:1em;
+      margin-bottom:1.5em;
+      border-radius:5px;
+      
+      position: fixed;
+    left: 50%;
+    transition: 0.3s;
+    margin-top: 1em;
+    z-index: 1000000;
+    animation: slideInFromTopAlert .5s linear 0s 1 normal forwards;
+      opacity: 0;
+  
+  }
+  @keyframes slideInFromTopAlert {
+    0% {
+      -ms-transform: translate(-50%, -100%);
+        -moz-transform: translate(-50%, -100%);
+        -webkit-transform: translate(-50%, -100%);
+        transform: translate(-50%, -100%);
+    }
+    100% {
+         -ms-transform: translate(-50%, 0%);
+        -moz-transform: translate(-50%, 0%);
+        -webkit-transform: translate(-50%, 0%);
+        transform: translate(-50%, 0%);
+        opacity: 1;
+    }
+  }
+  @keyframes slideToTopAlert {
+    0% {
+      -ms-transform: translate(-50%, 0%);
+        -moz-transform: translate(-50%, 0%);
+        -webkit-transform: translate(-50%, 0%);
+        transform: translate(-50%, 0%);
+        opacity: 1;
+    }
+    100% {
+         -ms-transform: translate(-50%, -100%);
+        -moz-transform: translate(-50%, -100%);
+        -webkit-transform: translate(-50%, -100%);
+        transform: translate(-50%, -100%);
+        opacity: 0;
+    }
+  }
+  
+  .closeAlert {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    /*transition: 0.3s;*/
+  }
+  
+  .closeAlert:hover {
+    color: #ccc;
+  }
+  
+  .error {
+    background:#f2412b;
+    color:#fff;
+  }
+  .success {
+    background:#62c834;
+    color:#fff;
+  }
+  .info {
+    background:#BDE5F8;
+    color:#fff;
+  }

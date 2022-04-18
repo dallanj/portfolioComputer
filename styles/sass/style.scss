@@ -1,0 +1,431 @@
+@import 'normalize';
+@import 'contact';
+@import 'portfolio';
+@import 'terminal';
+@import 'slider';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Ubuntu', sans-serif;
+}
+body {
+  background-color: #2B3045;
+  overflow:hidden;
+  min-height: 100vh;
+  background-image: url("../images/wallpapers/wallpaper.jpg");
+  object-fit: cover;
+  background-size: auto;
+  display:flex;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+a {
+    color:inherit;
+}
+
+// top bar contains window tabs
+.menuBar-container {
+  width:100%;
+  height:32px;
+  background-color:#1d1d1d;
+  color:#ddd;
+  position:fixed;
+  top:0;
+  left:0;
+  box-shadow: 0px 0px 2.5px #000;
+
+  ul.menuBar-links {
+    position:absolute;
+    height:100%;
+    display:flex;
+    width:100%;
+
+    li.link {
+      display:flex;
+      cursor: pointer;
+      align-items: center;
+      border-radius:5px;
+    }
+    li.link:not(:last-child) {
+      margin-right:1.5em;
+    }
+    span#time {
+      display:flex;
+      align-self: center;
+      margin-left: auto;
+      margin-right:2em;
+    }
+  }
+  ul.menuBar-links:last-child {
+  margin-left:1em;
+
+  }
+}
+
+// folder icons
+.desktop-container {
+
+  // background:blue;
+  min-height:100%;
+  height:100vh;
+
+  // hide scroll bar for menu dock
+  ul.desktop-menu::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+  }
+
+  ul.desktop-menu {
+    width:100%;
+    height:100%;
+    margin-top:32px;
+    overflow-y:scroll;
+    background: rgba(0,0,0,.5);
+    border-right: 1px solid #000;
+    scrollbar-width: none;
+    padding:.125em;
+
+    // accessibility
+    li.folder:focus {
+      border-radius: 5px;
+      background: rgba(255,255,255,.2);
+    }
+    
+    li.folder {
+      padding:.5em;
+      display:flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      position: relative;
+
+      .desktop-text {
+        margin-top:.25em;
+        color:#c5c5c5;
+        text-shadow: 0px 0 0 #000, 0 0px 0 #000, 0 1px 0 #000, 1px 0 0 #000;
+      }
+      img {
+        width:56px;
+        margin-bottom:.15em;
+      }
+      
+      
+    }
+    li.folder:not(:last-child) {
+      margin-bottom:.2em;
+    }
+    li.folder:hover {
+      border-radius: 5px;
+      background: rgba(255,255,255,.1);
+    }
+    .current-window {
+      border-radius: 5px;
+      background: rgba(255,255,255,.25);
+    }
+    .current-window:hover {
+      background: rgba(255,255,255,.25) !important;
+      cursor: default !important;
+    }
+    // orange dot beside folder if active
+    .active-tab {
+      position: absolute;
+      top:50%;
+      left:0;
+      width:6px;
+      height:6px;
+      background:#e95420;
+      border-radius: 50%;
+    }
+  }
+  
+
+}
+
+// preset window widths
+.portfolioWindow {
+  width:calc(100% - 77px);
+  height:calc(100% - 32px);
+  overflow: auto;
+  resize: both;
+  // min-width: 450px; // remove for mobile
+}
+.portfolioHeader {
+  // min-width: 450px;
+}
+@media screen and (max-width:900px) {
+  .portfolioWindow, .aboutWindow, .terminalWindow {
+    width:100%;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .portfolioWindow, .aboutWindow, .terminalWindow{
+    width:calc(100% - 77px);
+    top:0;
+    left:0;
+  }
+  .portfolioHeader {
+    width:100%;
+  }
+}
+.contactWindow {
+  width:400px;
+  overflow: auto;
+  resize: both;
+}
+.aboutWindow {
+  width:500px;
+  height:600px;
+  overflow: auto;
+  resize: both;
+  background-color: #3e3e3e;
+}
+.viewProjectWindow {
+  width:600px;
+  height:600px;
+  overflow: auto;
+  resize: both;
+  background-color: #3e3e3e;
+
+  .window-viewProject-content {
+      overflow-y: auto;
+      height:100%;
+      margin-top:40px;
+      height: calc(100% - 40px);
+      
+  }
+}
+.terminalWindow {
+  width:600px;
+  height:400px;
+  overflow: auto;
+  resize: both;
+  // min-width: 450px;
+}
+.terminalHeader {
+  // min-width: 450px;
+}
+@media screen and (max-width:850px) {
+  .terminalWindow {
+    width:100%;
+  }
+}
+// window styling
+.window {
+  position: fixed;
+  z-index: 100;
+  background-color: #343434;
+  border: 1px solid #231e24;
+  text-align: center;
+  left:77px;
+  top:32px;
+  border-radius: 10px 10px 0px 0px;
+  box-shadow: 0px 0px 2.5px #000;
+}
+
+@media screen and (max-width:480px) {
+  .window {
+    top:32px !important;
+    left:77px !important;
+    width:calc(100% - 77px);
+    height: 100%;
+    transform: translate(0,0);
+  }
+  .window-header {
+    width:100% !important;
+  }
+  ul.window-projects-menu {
+    display:none;
+  }
+  .projects-content {
+    grid-template-columns: 1fr;
+  }
+
+  // remove max icon from header bar
+  #terminalWindowMax, #portfolioWindowMax, #aboutWindowMax, #contactWindowMax, #viewProjectWindowMax {
+    display:none !important;
+  }
+  // remove min icon from header bar
+  #terminalWindowMin, #portfolioWindowMin, #aboutWindowMin, #contactWindowMin, #viewProjectWindowMin {
+    display:none !important;
+  }
+}
+
+.window-header {
+  padding: 10px;
+  z-index: 10;
+  background-color: #2c2c2c;
+  border-top:1px solid #3a3a3a;
+  border-bottom: 1px solid #231e24;
+  color: #fff;
+  border-radius: 10px 10px 0px 0px;
+  position:fixed;
+  width:100%;
+
+  .window-icons {
+    position: absolute;
+    display:flex;
+    top:50%;
+    height:22px;
+    transform: translateY(-50%);
+    right:10px;
+  }
+  .window-icons > li:nth-child(2) {
+    margin:0em .5em;
+  }
+  .window-icon-hover, .window-icon-close {
+    cursor: pointer;
+  }
+  .window-icon-hover:hover {
+    background:#4a4a4a;
+    border-radius: 50%;
+
+  }
+}
+
+
+// projects/portfolio window styling
+#portfolioWindow {
+  display:none;
+}
+#portfolioWindowMin {
+  display:block;
+}
+#portfolioWindowMax {
+  display: none;
+}
+#projectsMenuLink {
+  display:none;
+}
+
+// view project window styling
+#viewProjectWindow {
+  display:none;
+}
+#viewProjectWindowMin {
+  display:none;
+}
+#viewProjectMenuLink {
+  display:none;
+}
+
+// contact me window styling
+#contactWindow {
+  display:none;
+}
+#contactWindowMin {
+  display:none;
+}
+#contactMenuLink {
+  display:none;
+}
+
+// terminal window styling
+#terminalWindow {
+  display:block;
+  background-color: #300a24;
+}
+#terminalWindowMin {
+  display:none;
+}
+#terminalMenuLink {
+  display:flex;
+}
+
+// terminal window styling
+#aboutWindow {
+  display:none;
+}
+#aboutWindowMin {
+  display:none;
+}
+#aboutMenuLink {
+  display:none;
+}
+
+
+p.description {
+  color:#fff;
+  margin:1em 0;
+  font-weight: 400;
+  line-height: 24px;
+  word-wrap: break-word;
+}
+
+.about-content {
+  display:flex;
+  flex-direction: column;
+  margin-top: calc(32px + .5em);
+  height: calc(100% - 40px);
+  // align-items: center;
+  // overflow-y: auto;
+  // height:100%;
+  
+  
+  .window-about-content {
+    padding:1em;
+    overflow-y: auto;
+    height:100%;
+    
+    img.about-image {
+      width:150px;
+      border-radius: 50%;
+      margin-bottom: 2em;
+    }
+    .about-box-col {
+      flex-direction: column;
+    }
+    .about-box {
+      background-color: #373737;
+      border: 1px solid #282828;
+      display:flex;
+      max-width: 500px;
+      padding:.75em;
+      margin:0 auto;
+      color:#d7d7d7;
+      margin-bottom:1em;
+      p.about-box-title {
+        margin-bottom:1em;
+      }
+      p:last-child {
+        justify-self: flex-end;
+        margin-left:auto;
+      }
+      ul.skill-set {
+        flex-wrap: wrap;
+        display:flex;
+        gap: 2em;
+        justify-content: center;
+        li {
+          p {
+            margin-top:.5em;
+          }
+          i {
+            font-size: 2.25em;
+          }
+          img {
+            width:31.5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+footer {
+  position: absolute;
+  bottom:10px;
+  right:10px;
+  color:black;
+  font-size: .75rem;
+  font-family: monospace !important;
+}
+@media screen and (max-width:480px) {
+  footer {
+    font-size: 75%;
+  }
+}
